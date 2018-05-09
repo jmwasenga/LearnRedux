@@ -3,14 +3,10 @@ import React, { Component} from 'react';
 import { connect } from 'react-redux';
 import ListView from './ListView';
 class ListLibraries extends Component {
-	state = {list: []};
-	componentWillMount() {
-		this.setState({list: this.props.libraries});
-	}	
-	
 	renderList() {
-		return this.state.list.map((listing) => {
-             return <div>{listing.title}</div>;
+		return this.props.libraries.map((listing) => {
+             //return <div key={listing.id}>{listing.id}. {listing.title}</div>;
+			 return <ListView key={listing.id} data={listing} />;
 		});
 	}
 	render() {
